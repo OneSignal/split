@@ -1,38 +1,10 @@
 # React-Split &nbsp; [![CI](https://img.shields.io/circleci/project/github/nathancahill/split/master.svg)](https://circleci.com/gh/nathancahill/split) ![Dependencies](https://img.shields.io/badge/dependencies-0-brightgreen) ![](https://img.badgesize.io/https://unpkg.com/react-split/dist/react-split.min.js?compression=gzip&label=size&v=2.0.5)
 
-React component for [Split.js](https://github.com/nathancahill/Split.js/)
+Forked React component for [Split.js](https://github.com/nathancahill/Split.js/)
 
-## Installation
-
-Yarn:
-
-```
-$ yarn add react-split
-```
-
-npm:
-
-```
-$ npm install --save react-split
-```
-
-Include with a module bundler like [rollup](http://rollupjs.org/) or [webpack](https://webpack.github.io/):
-
-```js
-// using ES6 modules
-import Split from 'react-split'
-
-// using CommonJS modules
-var Split = require('react-split')
-```
-
-The [UMD](https://github.com/umdjs/umd) build is also available on [unpkg](http://unpkg.com/):
-
-```html
-<script src="https://unpkg.com/react-split/dist/react-split.js"></script>
-```
-
-You can find the library on `window.ReactSplit`.
+NOTE: This repo has been heavily modified to utilize just the React Split package from the original repo and includes the dist files. All other packages have been filtered out from the original fork.
+The reason we are not adding the original package via the NPM registery is due to this Typing issue which has been merged but not published: https://github.com/nathancahill/split/issues/693.
+Once published we can use that version and discard this repo.
 
 ## Usage
 
@@ -40,12 +12,12 @@ The `<Split />` component wraps multiple children components to create a resizea
 light wrapper around the [Split.js](https://github.com/nathancahill/Split.js/) library and accepts (mostly) the same options.
 
 ```js
-import Split from 'react-split'
+import Split from 'react-split';
 
 <Split>
-    <ComponentA />
-    <ComponentB />
-</Split>
+  <ComponentA />
+  <ComponentB />
+</Split>;
 ```
 
 ## Reference
@@ -58,22 +30,22 @@ All additional props are passed through to the to the `<div>` component.
 ### Example
 
 ```js
-import Split from 'react-split'
+import Split from 'react-split';
 
 <Split
-    sizes={[25, 75]}
-    minSize={100}
-    expandToMin={false}
-    gutterSize={10}
-    gutterAlign="center"
-    snapOffset={30}
-    dragInterval={1}
-    direction="horizontal"
-    cursor="col-resize"
+  sizes={[25, 75]}
+  minSize={100}
+  expandToMin={false}
+  gutterSize={10}
+  gutterAlign="center"
+  snapOffset={30}
+  dragInterval={1}
+  direction="horizontal"
+  cursor="col-resize"
 >
-    <ComponentA />
-    <ComponentB />
-</Split>
+  <ComponentA />
+  <ComponentB />
+</Split>;
 ```
 
 ### Props
@@ -145,19 +117,19 @@ Refer to [Split.js documentation](https://github.com/nathancahill/split/tree/mas
 A few props are exempt from updating. These props are functions, these props will not trigger a `componentDidUpdate`.
 Following React best practices, and do not create functions in the render method. Instead, create them once and pass them as props.
 
--   `gutter`
--   `elementStyle`
--   `gutterStyle`
--   `onDrag`
--   `onDragStart`
--   `onDragEnd`
+- `gutter`
+- `elementStyle`
+- `gutterStyle`
+- `onDrag`
+- `onDragStart`
+- `onDragEnd`
 
 #### API
 
--   `.setSizes(sizes)` becomes the prop `sizes={sizes}`
--   `.getSizes()` is unavailable, but sizes are passed to `onDragStart` and `onDragEnd`
--   `.collapse(index)` becomes the prop: `collapsed={index}`
--   `.destroy()` is triggered automatically on `componentWillUnmount`
+- `.setSizes(sizes)` becomes the prop `sizes={sizes}`
+- `.getSizes()` is unavailable, but sizes are passed to `onDragStart` and `onDragEnd`
+- `.collapse(index)` becomes the prop: `collapsed={index}`
+- `.destroy()` is triggered automatically on `componentWillUnmount`
 
 ## License
 
